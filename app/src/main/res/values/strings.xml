@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">OhWeather</string>
+    <string name="permission_check">Please enable location permissions for the proper functioning of this app</string>
+    <string name="closeDrawer">Close Drawer</string>
+    <string name="openDrawer">Open Drawer</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_settings_fragment">Hello Settings fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="navigation_menu_items">
+        <item>Home</item>
+        <item>Settings</item>
+    </string-array>
+</resources>

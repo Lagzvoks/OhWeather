@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.dikamjitborah.hobarb.ohweather.R;
 import com.dikamjitborah.hobarb.ohweather.views.fragment.HomeFragment;
@@ -47,11 +48,11 @@ public class Home extends AppCompatActivity {
         navigationView = findViewById(R.id.nav_view_home);
         setSupportActionBar(toolbar);
         drawer_items = getResources().getStringArray(R.array.navigation_menu_items);
+        getSelectedFragment();
         setNavigationView();
 
 
-        if(savedInstanceState==null)
-        {
+        if (savedInstanceState == null) {
             menuItemIndex = 0;
             TAG_CURRENT = Constants.TAG_HOME;
             loadFragment();
@@ -59,10 +60,9 @@ public class Home extends AppCompatActivity {
         }
 
 
-
     }
 
-    private void loadFragment(){
+    private void loadFragment() {
         navigationView.getMenu().getItem(menuItemIndex).setChecked(true);
         getSupportActionBar().setTitle(drawer_items[menuItemIndex]);
         Runnable runnable = new Runnable() {
@@ -70,7 +70,7 @@ public class Home extends AppCompatActivity {
             public void run() {
                 Fragment fragment = getSelectedFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.add(R.id.framelayout_nav_appbar,fragment, TAG_CURRENT);
+                fragmentTransaction.replace(R.id.framelayout_nav_appbar, fragment, TAG_CURRENT);
                 fragmentTransaction.commitAllowingStateLoss();
             }
         };
@@ -82,7 +82,7 @@ public class Home extends AppCompatActivity {
     }
 
     private Fragment getSelectedFragment() {
-        switch (menuItemIndex){
+        switch (menuItemIndex) {
             case 0:
                 //the home fragment
                 HomeFragment homeFragment = new HomeFragment();
@@ -117,6 +117,16 @@ public class Home extends AppCompatActivity {
                         menuItemIndex = 0;
                         break;
                 }
+
+                if (menuItem.isChecked()) {
+                    menuItem.setChecked(false);
+                } else {
+                    menuItem.setChecked(true);
+                }
+                menuItem.setChecked(true);
+
+                loadFragment();
+
                 return true;
             }
         });

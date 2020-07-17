@@ -15,5 +15,12 @@
     <item name="android:textColorPrimaryInverse">@android:color/white</item>
 
 </style>
-    
+    <style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
+        <item name="android:textSize">15sp</item>
+        <item name="singleLine">true</item>
+        <item name="android:maxLength">26</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">#000000</item>
+
+    </style>
 </resources>

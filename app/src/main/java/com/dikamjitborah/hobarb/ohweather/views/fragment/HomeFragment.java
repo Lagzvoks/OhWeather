@@ -2,13 +2,21 @@ package com.dikamjitborah.hobarb.ohweather.views.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.dikamjitborah.hobarb.ohweather.R;
+import com.dikamjitborah.hobarb.ohweather.views.UniversalStuff;
+import com.dikamjitborah.hobarb.ohweather.views.fragment.adapters.ViewPagerAdapter;
+import com.dikamjitborah.hobarb.ohweather.views.fragment.cities.CityFragment;
+import com.google.android.material.tabs.TabLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +24,14 @@ import com.dikamjitborah.hobarb.ohweather.R;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    TabLayout tabLayout;
+    ViewPager viewPager;
+    TextView textView;
+    ViewPagerAdapter viewPagerAdapter;
+
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,6 +67,10 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -60,7 +80,35 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    private void setupViewPager() {
+
+        viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
+        viewPagerAdapter.add_New_Fragment(new CityFragment(), UniversalStuff.cityName,String.valueOf( UniversalStuff.latitude),String.valueOf( UniversalStuff.longitude));
+        viewPager.setAdapter(viewPagerAdapter);
+
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        tabLayout = this.getView().findViewById(R.id.tabLayout_home_frag);
+        viewPager = this.getView().findViewById(R.id.viewPager_home_frag);
+        // textView = getView().findViewById(R.id.text_home_frag);
+
+        setupViewPager();
+        tabLayout.setupWithViewPager(viewPager);
+
+
+
     }
 }

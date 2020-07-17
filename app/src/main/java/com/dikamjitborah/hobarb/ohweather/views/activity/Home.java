@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -33,9 +34,16 @@ public class Home extends AppCompatActivity {
 
     String[] drawer_items;
     int menuItemIndex = 0;
+    int menuItemIndex_right = 0;
     private String TAG_CURRENT = Constants.TAG_HOME;
     private Handler handler;
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if(menuItemIndex_right == 0)
+            getMenuInflater().inflate(R.menu.right_menu_items, menu);
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

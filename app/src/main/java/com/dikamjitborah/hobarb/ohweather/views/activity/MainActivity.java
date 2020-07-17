@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dikamjitborah.hobarb.ohweather.R;
+import com.dikamjitborah.hobarb.ohweather.views.UniversalStuff;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -94,11 +95,18 @@ public class MainActivity extends AppCompatActivity {
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     }
-                                    String cityName = addresses.get(0).getAddressLine(0);
+                                    String address = addresses.get(0).getAddressLine(0);
+                                    String cityName = addresses.get(0).getLocality();
                                     String stateName = addresses.get(0).getAddressLine(1);
                                     String countryName = addresses.get(0).getAddressLine(2);
 
-                                    Toast.makeText(MainActivity.this, lat + ", " + lon, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, address + ", aaaaa" + cityName, Toast.LENGTH_SHORT).show();
+
+                                    UniversalStuff.latitude = lat;
+                                    UniversalStuff.longitude = lon;
+                                    UniversalStuff.cityName = cityName;
+                                    UniversalStuff.address = address;
+
                                     startActivity(new Intent(getApplicationContext(), Home.class));
                                     //textView.setText(cityName+", "+location.getLongitude()+""); save to shared preferences
 

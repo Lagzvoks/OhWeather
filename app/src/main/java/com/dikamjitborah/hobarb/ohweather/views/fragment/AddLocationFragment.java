@@ -5,33 +5,24 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.dikamjitborah.hobarb.ohweather.R;
-import com.dikamjitborah.hobarb.ohweather.views.UniversalStuff;
-import com.dikamjitborah.hobarb.ohweather.views.fragment.adapters.ViewPagerAdapter;
-import com.dikamjitborah.hobarb.ohweather.views.fragment.cities.CityFragment;
-import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link AddLocationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class AddLocationFragment extends Fragment {
 
-    TabLayout tabLayout;
-    ViewPager viewPager;
-    TextView textView;
-    ViewPagerAdapter viewPagerAdapter;
-
-
-
+    RecyclerView recyclerView;
+    FloatingActionButton floatingActionButton;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,7 +33,7 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public HomeFragment() {
+    public AddLocationFragment() {
         // Required empty public constructor
     }
 
@@ -52,11 +43,11 @@ public class HomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment AddLocationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static AddLocationFragment newInstance(String param1, String param2) {
+        AddLocationFragment fragment = new AddLocationFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,10 +58,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -80,35 +67,15 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-
-
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
-    }
-
-    private void setupViewPager() {
-
-        viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
-        viewPagerAdapter.add_New_Fragment(new CityFragment(), UniversalStuff.cityName,String.valueOf( UniversalStuff.latitude),String.valueOf( UniversalStuff.longitude), UniversalStuff.address);
-        viewPager.setAdapter(viewPagerAdapter);
-
-
+        return inflater.inflate(R.layout.fragment_add_location, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        tabLayout = this.getView().findViewById(R.id.tabLayout_home_frag);
-        viewPager = this.getView().findViewById(R.id.viewPager_home_frag);
-        // textView = getView().findViewById(R.id.text_home_frag);
-
-        setupViewPager();
-        tabLayout.setupWithViewPager(viewPager);
-
-
-
+        recyclerView = getView().findViewById(R.id.recycler_location_frag);
+        floatingActionButton = getView().findViewById(R.id.action_location_frag);
     }
 }

@@ -15,6 +15,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     List<String> fragmentTitleList = new ArrayList<>();
     List<Fragment> fragmentList = new ArrayList<>();
+    List<String> fragmentAddressList = new ArrayList<>();
 
 
 
@@ -39,13 +40,16 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return fragmentTitleList.get(position);
     }
 
-    public void  add_New_Fragment(Fragment fragment, String title, String latitude, String longitude)
+    public void  add_New_Fragment(Fragment fragment, String title, String latitude, String longitude, String address)
     {
         Bundle bundle = new Bundle();
         bundle.putString("LATITUDE", latitude);
         bundle.putString("LONGITUDE", longitude);
+        bundle.putString("ADDRESS", address);
+        bundle.putString("CITY", title);
         fragment.setArguments(bundle);
         fragmentList.add(fragment);
         fragmentTitleList.add(title);
+        fragmentAddressList.add(address);
     }
 }

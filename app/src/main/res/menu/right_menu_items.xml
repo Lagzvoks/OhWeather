@@ -5,11 +5,13 @@
     <item android:title="Item"
         android:id="@+id/add_loc_right_menu"
        app:showAsAction="always"
-        android:icon="@drawable/ic_baseline_add_location_24"/>
+        android:icon="@drawable/ic_baseline_add_location_24"
+        android:iconTint="@color/textcolorfc"/>
 
     <item android:title="Item"
         android:id="@+id/refresh_right_menu"
         app:showAsAction="always"
-        android:icon="@drawable/ic_baseline_refresh_24"/>
+        android:icon="@drawable/ic_baseline_refresh_24"
+        android:iconTint="@color/textcolorfc"/>
 
 </menu>

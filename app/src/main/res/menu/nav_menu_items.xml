@@ -4,12 +4,14 @@
 
     <item
         android:title="Home"
-
         android:id="@+id/item_home"
-        android:icon="@drawable/ic_baseline_home_24"></item>
+        android:icon="@drawable/ic_baseline_home_24"
+        android:iconTint="@color/textcolorfc"></item>
     <item
         android:title="Settings"
         android:id="@+id/item_settings"
-        android:icon="@drawable/ic_baseline_settings_24"></item>
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:iconTint="@color/textcolorfc"
+        ></item>
 </group>
 </menu>

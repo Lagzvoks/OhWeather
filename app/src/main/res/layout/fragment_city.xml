@@ -1,14 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.fragment.cities.CityFragment">
+    tools:context=".views.fragment.cities.CityFragment"
+    android:background="@drawable/madison"
+    >
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ScrollView
+
+        android:layout_margin="7dp"
+        android:padding="7dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@drawable/greenbg"
+        >
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+         <LinearLayout
+             android:orientation="horizontal"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+             <TextView
+                 android:layout_weight="1"
+                 android:id="@+id/coor_city_frag"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:text="hengerabari, ganesguri"
+                 android:textColor="#fcfcfc">
+             </TextView>
+             <TextView
+                 android:textAlignment="textEnd"
+                 android:layout_weight="1"
+             android:id="@+id/address_city_frag"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:text="hengerabari, ganesguri"
+             android:textColor="#fcfcfc">
+         </TextView>
+
+         </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView_city_frag"
+                android:src="@drawable/placeholder"
+                android:layout_width="126dp"
+                android:layout_height="126dp">
+
+            </ImageView>
+           <LinearLayout
+
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <LinearLayout
+                   android:orientation="vertical"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent">
+
+                   <TextView
+                       android:text="22"
+                       android:textSize="100sp"
+                       android:textColor="#fcfcfc"
+                       android:id="@+id/temp_city_frag"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       >
+
+                   </TextView>
+                   <TextView
+                       android:text="22"
+                       android:textSize="70dp"
+                       android:textColor="#fcfcfc"
+                       android:id="@+id/feels_city_frag"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       >
+
+                   </TextView>
+
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical">
+                   <TextView
+                       android:text="Pressure"
+                       android:textSize="@dimen/extra_info"
+                       android:textColor="#fcfcfc"
+                       android:id="@+id/pressure_city_frag"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       >
+                   </TextView>
+                   <TextView
+                       android:text="Info"
+                       android:textSize="@dimen/extra_info"
+                       android:textColor="#fcfcfc"
+                       android:id="@+id/info_city_frag"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       >
+                   </TextView>
+                   <TextView
+                       android:text="Visibility"
+                       android:textSize="@dimen/extra_info"
+                       android:textColor="#fcfcfc"
+                       android:id="@+id/visibility_city_frag"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       >
+                   </TextView>
+                   <TextView
+                       android:text="Sunrise"
+                       android:textSize="@dimen/extra_info"
+                       android:textColor="#fcfcfc"
+                       android:id="@+id/sunrise_city_frag"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       >
+                   </TextView>
+                   <TextView
+                       android:text="Sunset"
+                       android:textSize="@dimen/extra_info"
+                       android:textColor="#fcfcfc"
+                       android:id="@+id/sunset_city_frag"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       >
+                   </TextView>
+
+
+
+
+               </LinearLayout>
+           </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:text="sdfsrgfdsfgdsf"></TextView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_city_frag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

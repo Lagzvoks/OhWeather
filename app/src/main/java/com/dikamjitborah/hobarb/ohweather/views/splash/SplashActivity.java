@@ -40,7 +40,7 @@ public class SplashActivity extends BaseActivity {
 
         imageView = findViewById(R.id.imageView_splash);
 
-        Glide.with(getApplicationContext()).load(R.drawable.logog).into(imageView);
+        //Glide.with(getApplicationContext()).load(R.drawable.logog).into(imageView);
 
         new Handler().postDelayed(new Runnable() {
             @Override

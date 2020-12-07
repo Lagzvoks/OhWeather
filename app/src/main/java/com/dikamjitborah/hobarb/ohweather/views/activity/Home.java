@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.dikamjitborah.hobarb.ohweather.R;
+import com.dikamjitborah.hobarb.ohweather.views.fragment.AddLocationFragment;
 import com.dikamjitborah.hobarb.ohweather.views.fragment.HomeFragment;
 import com.dikamjitborah.hobarb.ohweather.views.fragment.SettingsFragment;
 import com.dikamjitborah.hobarb.ohweather.views.utilities.Constants;
@@ -43,6 +44,36 @@ public class Home extends AppCompatActivity {
         if(menuItemIndex_right == 0)
             getMenuInflater().inflate(R.menu.right_menu_items, menu);
         return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.refresh_right_menu) {
+            Toast.makeText(this, "Refreshing", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if (id == R.id.add_loc_right_menu) {
+
+            AddLocationFragment addLocationFragment = new AddLocationFragment();
+            Toast.makeText(this, "Add location", Toast.LENGTH_SHORT).show();
+
+            getSupportActionBar().setTitle("Add location");
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.framelayout_nav_appbar, addLocationFragment, TAG_CURRENT);
+                    fragmentTransaction.commitAllowingStateLoss();
+
+            return true;
+        }
+
+        // user is in notifications fragment
+        // and selected 'Mark all as Read'
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

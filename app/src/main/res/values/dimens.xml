@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="header_height">200dp</dimen>
+    <dimen name="extra_info">18sp</dimen>
+    <dimen name="margin">14dp</dimen>
 </resources>

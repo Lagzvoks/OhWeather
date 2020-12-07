@@ -23,6 +23,9 @@
         android:layout_height="match_parent"
         app:headerLayout="@layout/header_drawer_main"
         app:menu="@menu/nav_menu_items"
+        android:background="@drawable/custom_bg_nav_view"
+        app:itemTextColor="@color/textcolorfc"
+        app:itemIconTint="@color/textcolorfc"
 
 
         >
